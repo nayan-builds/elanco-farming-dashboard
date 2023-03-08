@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" media="only screen and (min-width: 720px)" href="css/desktop.css">
-    <title>Welcome | Elanco Farming Dashboard</title>
+    <title>Welcome | Elanco Farming Dashboard1</title>
 </head>
 <body>
     <header id="primary-header">
