@@ -18,7 +18,7 @@ body{
     background-color: var(--primary-clr);
 }
 
-#primary-nav{
+#primary-nav ul{
     display: flex;
     justify-content: end;
     align-items: center;
