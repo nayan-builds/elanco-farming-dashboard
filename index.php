@@ -13,9 +13,9 @@
         </div>
         <nav id="primary-nav">
             <ul>
-                <li><a href="#">Welcome</a></li>
-                <li><a href="#">Crops</a></li>
-                <li><a href="#">Plot</a></li>
+                <li><a href="index.php">Welcome</a></li>
+                <li><a href="crops.php">Crops</a></li>
+                <li><a href="plots.php">Plot</a></li>
             </ul>
         </nav>
     </header>
