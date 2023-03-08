@@ -38,8 +38,17 @@ body{
     list-style: none;
 }
 
+#primary-nav ul li{
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0.5rem;
+}
+
 #primary-nav ul li a{
     text-decoration: none;
     color: #FFF;
+}
+
+#title-bar{
+    background-color: var(--accent-clr);
 }
 
