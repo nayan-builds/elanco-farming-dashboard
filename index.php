@@ -10,8 +10,8 @@
 </head>
 <body>
     <header id="primary-header">
-        <div class="logo">
-
+        <div id="logo" class="logo">
+            <a href="index.php"><img id="logo" src="img/Logo.png" alt="Elanco logo"></a>
         </div>
         <nav id="primary-nav">
             <ul>
@@ -21,5 +21,14 @@
             </ul>
         </nav>
     </header>
+    <div>   
+        <p>
+        This is the Elanco Farming Dashboard
+        </p>
+        <br>
+        <p>
+        We are your best friend for optmising your farming strategies to maximise your yield.
+        </p>
+    </div>
 </body>
 </html>
