@@ -7,6 +7,17 @@
     <title>Welcome | Elanco Farming Dashboard</title>
 </head>
 <body>
-    
+    <header id="primary-header">
+        <div class="logo">
+
+        </div>
+        <nav id="primary-nav">
+            <ul>
+                <li><a href="#">Welcome</a></li>
+                <li><a href="#">Crops</a></li>
+                <li><a href="#">Plot</a></li>
+            </ul>
+        </nav>
+    </header>
 </body>
 </html>
