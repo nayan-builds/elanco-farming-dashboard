@@ -21,5 +21,10 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <header id="title-bar" class="title-bar">
+            <h1>Crop types</h1>
+        </header>
+    </main>
 </body>
 </html>
