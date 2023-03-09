@@ -23,7 +23,7 @@
     </header>
     <main>
         <header id="title-bar" class="title-bar">
-            <h1>Crop types</h1>
+            <h1>Crops</h1>
         </header>
         <div class="table-container">
             <table>
