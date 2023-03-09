@@ -21,14 +21,14 @@
             </ul>
         </nav>
     </header>
-    <div>   
-        <p>
-        This is the Elanco Farming Dashboard
-        </p>
-        <br>
-        <p>
-        We are your best friend for optmising your farming strategies to maximise your yield.
-        </p>
-    </div>
+    <main>
+        <header id="title-bar" class="title-bar">
+            <h1>Welcome</h1>
+        </header>
+        <div class="card">   
+            <p>This is the Elanco Farming Dashboard</p>
+            <p>We are your best friend for optmising your farming strategies to maximise your yield.</p>
+        </div>
+    </main>
 </body>
 </html>

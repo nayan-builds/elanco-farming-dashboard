@@ -9,9 +9,9 @@
     <title>Crops | Elanco Farming Dashboard</title>
 </head>
 <body>
-    <header id="primary-header">
-        <div class="logo">
-        <a href="index.php"><img id="logo" src="img/Logo.png" alt="logo"></a>
+<header id="primary-header">
+        <div id="logo" class="logo">
+            <a href="index.php"><img id="logo" src="img/Logo.png" alt="Elanco logo"></a>
         </div>
         <nav id="primary-nav">
             <ul>
@@ -21,5 +21,10 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <header id="title-bar" class="title-bar">
+            <h1>Crop types</h1>
+        </header>
+    </main>
 </body>
 </html>
