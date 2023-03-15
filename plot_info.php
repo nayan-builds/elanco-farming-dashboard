@@ -34,6 +34,16 @@ $plot_num = $_GET["plot_num"];
                 <input type="submit">
             </form>
         </div>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Average PH</th>
+                    <th>Average Temperature</th>
+                    <th>Average Humidity</th>
+                    <th>Average Light</th>
+                </tr>
+            </table>
+        </div>
     </main>
 </body>
 </html>
