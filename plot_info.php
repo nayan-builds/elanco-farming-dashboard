@@ -15,6 +15,10 @@ $plot_num = $_GET["plot_num"];
     <link rel="stylesheet" media="only screen and (min-width: 720px)" href="css/desktop.css">
     <title>Plot <?php echo $plot_num; ?> | Elanco Farming Dashboard</title>
 </head>
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
 <body>
     <?php include('includes/header.php');?>
     <main>
@@ -34,6 +38,39 @@ $plot_num = $_GET["plot_num"];
                 <input type="submit">
             </form>
         </div>
+        <canvas id="lineChart" style="width:100%;max-width:600px"></canvas>
+        
+    <script src="graphs.js"></script>
+    
+
+
+<!--
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        <script>
+            var xValues = [50,60,70,80,90,100,110,120,130,140,150];
+            var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+
+            new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                fill: false,
+                lineTension: 1/3,
+                backgroundColor: "rgba(43,101,172,1.0)",
+                borderColor: "rgba(43,101,172,0.1)",
+                data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                scales: {
+                yAxes: [{ticks: {min: 6, max:16}}],
+                }
+            }
+            });
+        </script>
+-->
     </main>
 </body>
 </html>
