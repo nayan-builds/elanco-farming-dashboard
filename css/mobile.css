@@ -75,11 +75,13 @@ p{
 .card{
     margin-inline: auto;
     margin-block: 4rem;
-    padding: 2rem;
+    padding: 2.2rem;
     background-color: var(--neutral-clr);
     max-width: 720px;
     box-shadow: var(--drk-shadow);
-    font-size: 1.5em;
+    font-size: 1.8em;
+    text-align: center;
+    margin: 12% auto;
 }
 
 /* Table Styling */
