@@ -15,10 +15,6 @@ $plot_num = $_GET["plot_num"];
     <link rel="stylesheet" media="only screen and (min-width: 720px)" href="css/desktop.css">
     <title>Plot <?php echo $plot_num; ?> | Elanco Farming Dashboard</title>
 </head>
-
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-    </script>
 <body>
     <?php include('includes/header.php');?>
     <main>
@@ -38,12 +34,17 @@ $plot_num = $_GET["plot_num"];
                 <input type="submit">
             </form>
         </div>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Average PH</th>
+                    <th>Average Temperature</th>
+                    <th>Average Humidity</th>
+                    <th>Average Light</th>
+                </tr>
+            </table>
+        </div>
         <canvas id="lineChart" style="width:100%;max-width:600px"></canvas>
-        
-    <script src="graphs.js"></script>
-    
-
-
 <!--
         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
         <script>
@@ -72,5 +73,7 @@ $plot_num = $_GET["plot_num"];
         </script>
 -->
     </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="graphs.js"></script>
 </body>
 </html>

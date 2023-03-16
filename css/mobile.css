@@ -117,5 +117,16 @@ tr:nth-child(even){
 #date-filter{
     background-color: var(--neutral-clr);
     box-shadow: var(--lgt-shadow);
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#date-filter > form{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
 }
 

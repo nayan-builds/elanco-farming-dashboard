@@ -18,7 +18,7 @@ include('api_access.php');
             <h1>Plots</h1>
         </header>
         <div class="table-container">
-            <table>
+            <table id="plot-table">
                 <tr>
                     <th>Plot</th>
                     <th>Average PH</th>
@@ -27,21 +27,24 @@ include('api_access.php');
                     <th>Average Light</th>
                 </tr>
                 <?php
-                for($plot_num = 1; $plot_num <= 10; $plot_num++){
-                    $plot_id = "plot".$plot_num;
-                    $api = new APIGet();
-                    $data = $api->get_plot_averages($plot_id);
-                    echo "<tr>";
-                    echo "<td><a href=\"plot_info.php?plot_num={$plot_num}\">{$plot_num}</a></td>";
-                    echo "<td>{$data->ph}</td>";
-                    echo "<td>{$data->temp}</td>";
-                    echo "<td>{$data->humidity}</td>";
-                    echo "<td>{$data->light}</td>";
-                    echo "</tr>";
-                }
+                // This is very slow!
+                // for($plot_num = 1; $plot_num <= 10; $plot_num++){
+                //     $plot_id = "plot".$plot_num;
+                //     $api = new APIGet();
+                //     $data = $api->get_plot_averages($plot_id);
+                //     echo "<tr>";
+                //     echo "<td><a href=\"plot_info.php?plot_num={$plot_num}\">{$plot_num}</a></td>";
+                //     echo "<td>{$data->ph}</td>";
+                //     echo "<td>{$data->temp}</td>";
+                //     echo "<td>{$data->humidity}</td>";
+                //     echo "<td>{$data->light}</td>";
+                //     echo "</tr>";
+                // }
                 ?>
             </table>
         </div>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/plots.js"></script>
 </body>
 </html>
