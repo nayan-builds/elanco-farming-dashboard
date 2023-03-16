@@ -5,6 +5,7 @@ function fillPlotTable(){
         let url = "https://sampledata.elancoapps.com/data/plot/"+plotid;
         $.getJSON(url, (data)=>{
             //Callback function
+            data = data[0];
             let averages = {
                 ph: 0,
                 temp: 0,
