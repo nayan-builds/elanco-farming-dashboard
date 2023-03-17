@@ -1,5 +1,3 @@
-
-
 function graphing(id, xValues, yValues){
     new Chart(id, {
         type: "line",

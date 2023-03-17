@@ -35,7 +35,7 @@ $plot_num = $_GET["plot_num"];
             </form>
         </div>
         <div class="table-container">
-            <table>
+            <table id="plot-table">
                 <tr>
                     <th>Average PH</th>
                     <th>Average Temperature</th>
