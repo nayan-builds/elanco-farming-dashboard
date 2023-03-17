@@ -28,7 +28,7 @@ include('api_access.php');
                 </tr>
                 <?php
                 // This is very slow!
-                // for($plot_num = 1; $plot_num <= 10; $plot_num++){
+                // for($plot_num = 1; $plot_num <= 1; $plot_num++){
                 //     $plot_id = "plot".$plot_num;
                 //     $api = new APIGet();
                 //     $data = $api->get_plot_averages($plot_id);
