@@ -18,10 +18,10 @@ function fillPlotTable(){
                 averages.humid += dateData.AVG_Humidity__;
                 averages.light += dateData.AVG_Light__;
             });
-            averages.ph /= data.length;
-            averages.temp /= data.length;
-            averages.humid /= data.length;
-            averages.light /= data.length;
+            averages.ph = Number((averages.ph / data.length).toFixed(2));
+            averages.temp = Number((averages.temp / data.length).toFixed(2));
+            averages.humid = Number((averages.humid / data.length).toFixed(2));
+            averages.light = Number((averages.light / data.length).toFixed(2));
             let content = "<tr>";
             content += "<td><a href=\"plot_info.php?plot_num="+i+"\">"+i+"</a></td>";
             content += "<td>"+averages.ph+"</td>";
