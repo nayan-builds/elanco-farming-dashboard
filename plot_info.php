@@ -14,6 +14,7 @@ $plot_num = $_GET["plot_num"];
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" media="only screen and (min-width: 720px)" href="css/desktop.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <title>Plot <?php echo $plot_num; ?> | Elanco Farming Dashboard</title>
 </head>
 <body>
