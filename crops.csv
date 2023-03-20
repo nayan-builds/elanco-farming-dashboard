@@ -1,0 +1,6 @@
+crop,minPH,maxPH,minTemperature,maxTemperature,minHumidity,maxHumidity,minLight,maxLight,cost,yield,time
+Barley,6.5,7,14,20,30,60,20,50,150,500,60
+Corn,5.5,7,26,30,50,80,35,85,75,400,90
+Oats,6.2,6.6,15,25,25,75,10,40,80,300,30
+Rice,6,6.7,20,27,45,75,50,70,50,250,30
+Wheat,6,6.8,20,30,40,60,35,65,100,450,45
