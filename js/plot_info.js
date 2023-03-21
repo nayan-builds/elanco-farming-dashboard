@@ -35,3 +35,5 @@ function getDataInRange(plotid, startDate, endDate){
     let url = "https://sampledata.elancoapps.com/data/plot/"+plotid+"/date/"+startDate+"/"+endDate;
     $.getJSON(url, useData(data));
 }
+
+getDataInRange("plot1", "2022-06-06", "2022-07-16");
