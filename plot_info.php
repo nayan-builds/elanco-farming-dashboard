@@ -53,6 +53,8 @@ $plot_num = $_GET["plot_num"];
 
     </main>
     <script src="graphs.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/plot_info.js"></script>
 </body>
 
 </html>
