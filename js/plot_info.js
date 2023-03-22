@@ -1,10 +1,6 @@
-function drawChart(data){
-    
-}
-
-function useData(data){
-    let table = document.getElementById("plot-table");
-    data = data[0];
+async function fillTable(plot, startDate, endDate){
+    const table = document.getElementById("plot-table");
+    const data = await getPlotDateRange("plot"+plot, startDate, endDate);
     let averages = {
         ph: 0,
         temp: 0,
@@ -22,16 +18,10 @@ function useData(data){
     averages.humid = Number((averages.humid / data.length).toFixed(2));
     averages.light = Number((averages.light / data.length).toFixed(2));
     let content = "<tr>";
-    content += "<td><a href=\"plot_info.php?plot_num="+i+"\">"+i+"</a></td>";
     content += "<td>"+averages.ph+"</td>";
     content += "<td>"+averages.temp+"</td>";
     content += "<td>"+averages.humid+"</td>";
     content += "<td>"+averages.light+"</td>";
     content += "</tr>";
     table.insertAdjacentHTML("beforeend", content);
-}
-
-function getDataInRange(plotid, startDate, endDate){
-    let url = "https://sampledata.elancoapps.com/data/plot/"+plotid+"/date/"+startDate+"/"+endDate;
-    $.getJSON(url, useData(data));
 }
