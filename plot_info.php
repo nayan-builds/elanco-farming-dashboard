@@ -25,6 +25,7 @@ $plot_num = $_GET["plot_num"];
         </header>
         <div id="date-filter">
             <form action="" method="get">
+                <input type="hidden" name="plot_num" value="<?php echo $plot_num?>">
                 <div>
                     <label for="start-date">Start Date:</label>
                     <input type="date" id="start-date" name="start_date">
@@ -60,8 +61,14 @@ $plot_num = $_GET["plot_num"];
         var plot = $_GET['plot_num'];
 
         //Need to get dates from form
-        fillTable(plot, "2022-01-01", "2022-12-31");
-        arrayDataInRange(plot, "2022-01-01", "2022-02-01")
+        if ($_GET.hasOwnProperty('start_date') && $_GET.hasOwnProperty('end_date')){
+            fillTable(plot, $_GET['start_date'], $_GET['end_date']);
+            arrayDataInRange(plot, $_GET['start_date'], $_GET['end_date']);
+        }
+        else{
+            fillTable(plot, "2022-01-01", "2022-12-31");
+            arrayDataInRange(plot, "2022-01-01", "2022-02-01")
+        }
     </script>
 </body>
 
