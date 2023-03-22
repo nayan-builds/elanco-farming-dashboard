@@ -53,7 +53,7 @@ $plot_num = $_GET["plot_num"];
 
     </main>
     <script src="js/api.js"></script>
-    <script src="js/graphs.js"></script>
+    <!-- <script src="js/graphs.js"></script> -->
     <script src="js/plot_info.js"></script>
     <script>
         var $_GET = <?php echo json_encode($_GET); ?>;
@@ -61,6 +61,7 @@ $plot_num = $_GET["plot_num"];
 
         //Need to get dates from form
         fillTable(plot, "2022-01-01", "2022-12-31");
+        arrayDataInRange(plot, "2022-01-01", "2022-02-01")
     </script>
 </body>
 
