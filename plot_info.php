@@ -48,7 +48,10 @@ $plot_num = $_GET["plot_num"];
         </div>
 
         <div>
-            <canvas id="myChart"></canvas>
+            <canvas id="myChartph"></canvas>
+            <canvas id="myCharttemp"></canvas>
+            <canvas id="myCharthumid"></canvas>
+            <canvas id="myChartlight"></canvas>
         </div>
 
     </main>
