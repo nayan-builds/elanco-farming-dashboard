@@ -28,11 +28,25 @@ $plot_num = $_GET["plot_num"];
                 <input type="hidden" name="plot_num" value="<?php echo $plot_num?>">
                 <div>
                     <label for="start-date">Start Date:</label>
-                    <input type="date" id="start-date" name="start_date" min="2022-01-01" max="2022-12-31">
+                    <input type="date" id="start-date" name="start_date" min="2022-01-01" max="2022-12-31" value="<?php 
+                    if(isset($_GET["start_date"])){
+                        echo $_GET["start_date"];
+                    }
+                    else{
+                        echo "2022-01-01";
+                    }
+                    ?>">
                 </div>
                 <div>
                     <label for="end-date">End Date:</label>
-                    <input type="date" id="end-date" name="end_date" min="2022-01-01" max="2022-12-31">
+                    <input type="date" id="end-date" name="end_date" min="2022-01-01" max="2022-12-31" value="<?php 
+                    if(isset($_GET["end_date"])){
+                        echo $_GET["end_date"];
+                    }
+                    else{
+                        echo "2022-12-31";
+                    }
+                    ?>">
                 </div>
                 <input type="submit">
             </form>
