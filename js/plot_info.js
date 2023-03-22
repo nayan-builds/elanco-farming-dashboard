@@ -83,7 +83,7 @@ console.log(ph);
 
 
 new Chart(ctx, {
-    type: 'line',
+    type: 'scatter',
     // data: dates,
     data: {
         labels: date,
@@ -95,27 +95,27 @@ new Chart(ctx, {
             }]
       },
       
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
+    //   options: {
+    //     scales: {
+    //       y: {
+    //         beginAtZero: true
+    //       }
+    //     }
+    //   }
       
 
-    // options: {
-    //     scales: {
-    //         x: {
-    //             type: 'time',
-    //             time: {
-    //                 unit: 'day'
-    //             }
-    //         },
-    //         y: {
-    //             beginAtZero: true
-    //         }
-    //     }
-    // }
+    options: {
+        scales: {
+            x: {
+                type: 'time',
+                time: {
+                    unit: 'day'
+                }
+            },
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
 });
 }
