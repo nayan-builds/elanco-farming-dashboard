@@ -109,7 +109,7 @@ async function arrayDataInRange(plot, startDate, endDate) {
                     }
                 },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: false
                 }
             }
         }
@@ -144,7 +144,7 @@ async function arrayDataInRange(plot, startDate, endDate) {
                     }
                 },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: false
                 }
             }
         }
@@ -180,7 +180,7 @@ async function arrayDataInRange(plot, startDate, endDate) {
                     }
                 },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: false
                 }
             }
         }
@@ -216,7 +216,7 @@ async function arrayDataInRange(plot, startDate, endDate) {
                     }
                 },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: false
                 }
             }
         }
