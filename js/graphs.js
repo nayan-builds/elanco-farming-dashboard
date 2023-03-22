@@ -112,6 +112,5 @@ async function getData() {
         yhumidity.push(humidity);
         const light = columns[6];
         ylight.push(light);
-        console.log(date, ph, temperature, humidity, light)
     })
 }
