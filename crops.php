@@ -1,5 +1,6 @@
 <?php
-
+include("includes/db_conn.php");
+$result = $conn->query("SELECT * FROM crops");
 ?>
 <!DOCTYPE html>
 <html lang="en">
