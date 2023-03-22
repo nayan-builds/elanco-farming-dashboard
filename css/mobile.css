@@ -127,6 +127,22 @@ tr:nth-child(even){
     display: flex;
     gap: 2rem;
     align-items: center;
-
 }
 
+/* Graph styling */
+
+.flex-graph{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.graph-container{
+    width: min(100%, 1000px);
+    margin-block: 3rem;
+}
+
+.graph-container>canvas{
+    width: 100%;
+    height: auto;
+}

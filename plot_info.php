@@ -28,11 +28,11 @@ $plot_num = $_GET["plot_num"];
                 <input type="hidden" name="plot_num" value="<?php echo $plot_num?>">
                 <div>
                     <label for="start-date">Start Date:</label>
-                    <input type="date" id="start-date" name="start_date">
+                    <input type="date" id="start-date" name="start_date" min="2022-01-01" max="2022-12-31">
                 </div>
                 <div>
                     <label for="end-date">End Date:</label>
-                    <input type="date" id="end-date" name="end_date">
+                    <input type="date" id="end-date" name="end_date" min="2022-01-01" max="2022-12-31">
                 </div>
                 <input type="submit">
             </form>
@@ -48,11 +48,19 @@ $plot_num = $_GET["plot_num"];
             </table>
         </div>
 
-        <div>
-            <canvas id="myChartph"></canvas>
-            <canvas id="myCharttemp"></canvas>
-            <canvas id="myCharthumid"></canvas>
-            <canvas id="myChartlight"></canvas>
+        <div class="flex-graph">
+            <div class="graph-container">
+                <canvas id="myChartph"></canvas>
+            </div>
+            <div class="graph-container">
+                <canvas id="myCharttemp"></canvas>
+            </div>
+            <div class="graph-container">
+                <canvas id="myCharthumid"></canvas>
+            </div>
+            <div class="graph-container">
+                <canvas id="myChartlight"></canvas>
+            </div>
         </div>
 
     </main>
@@ -70,7 +78,7 @@ $plot_num = $_GET["plot_num"];
         }
         else{
             fillTable(plot, "2022-01-01", "2022-12-31");
-            arrayDataInRange(plot, "2022-01-01", "2022-02-01")
+            arrayDataInRange(plot, "2022-01-01", "2022-12-31");
         }
     </script>
 </body>
