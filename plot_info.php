@@ -24,7 +24,7 @@ $plot_num = $_GET["plot_num"];
             <h1>Plot <?php echo $plot_num; ?></h1>
         </header>
         <div id="date-filter">
-            <form action="">
+            <form action="" method="get">
                 <div>
                     <label for="start-date">Start Date:</label>
                     <input type="date" id="start-date" name="start_date">
