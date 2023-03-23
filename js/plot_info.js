@@ -53,39 +53,37 @@ async function arrayDataInRange(plot, startDate, endDate) {
         light.push(dateData.AVG_Light__);
     });
 
-
-    //for all the y axis lines
-    // var phLine = {
-    //     label: "pH",
-    //     data: ph,
-    //     borderColor: 'red'
-    // };
-    // var temperatureLine = {
-    //     label: "temperature",
-    //     data: temp,
-    //     borderColor: 'blue'
-    // };
-    // var humidityLine = {
-    //     label: "humidity",
-    //     data: humid,
-    //     borderColor: 'green'
-    // };
-    // var lightLine = {
-    //     label: "light",
-    //     data: light,
-    //     borderColor: 'yellow'
-    // };
-
-
-    // var dates = {
-    //     labels: date,
-    //     datasets: [phLine, temperatureLine, humidityLine, lightLine]
-    // };
-
+    const options = {
+        plugins: {
+            zoom: {
+                zoom: {
+                    wheel: {
+                        enabled: true
+                    },
+                    pinch: {
+                        enabled: true
+                    }
+                },
+                pan: {
+                    enabled: true
+                }
+            }
+        },
+        scales: {
+            x: {
+                type: 'time',
+                time: {
+                    unit: 'day'
+                }
+            },
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
 
     new Chart(phGraph, {
         type: 'line',
-        // data: dates,
         data: {
             labels: date,
             datasets: [
@@ -97,31 +95,11 @@ async function arrayDataInRange(plot, startDate, endDate) {
                     barThickness: 50
                 }]
         },
-        //   options: {
-        //     scales: {
-        //       y: {
-        //         beginAtZero: true
-        //       }
-        //     }
-        //   }
-        options: {
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        unit: 'day'
-                    }
-                },
-                y: {
-                    beginAtZero: false
-                }
-            }
-        }
+        options
     });
 
     new Chart(tempGraph, {
         type: 'line',
-        // data: dates,
         data: {
             labels: date,
             datasets: [
@@ -132,32 +110,12 @@ async function arrayDataInRange(plot, startDate, endDate) {
                     barThickness: 50
                 }]
         },
-        //   options: {
-        //     scales: {
-        //       y: {
-        //         beginAtZero: true
-        //       }
-        //     }
-        //   }
-        options: {
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        unit: 'day'
-                    }
-                },
-                y: {
-                    beginAtZero: false
-                }
-            }
-        }
+        options
     });
 
 
     new Chart(humidGraph, {
         type: 'line',
-        // data: dates,
         data: {
             labels: date,
             datasets: [
@@ -168,32 +126,12 @@ async function arrayDataInRange(plot, startDate, endDate) {
                     barThickness: 50
                 }]
         },
-        //   options: {
-        //     scales: {
-        //       y: {
-        //         beginAtZero: true
-        //       }
-        //     }
-        //   }
-        options: {
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        unit: 'day'
-                    }
-                },
-                y: {
-                    beginAtZero: false
-                }
-            }
-        }
+        options
     });
 
 
     new Chart(lightGraph, {
         type: 'line',
-        // data: dates,
         data: {
             labels: date,
             datasets: [
@@ -204,25 +142,6 @@ async function arrayDataInRange(plot, startDate, endDate) {
                     barThickness: 50
                 }]
         },
-        //   options: {
-        //     scales: {
-        //       y: {
-        //         beginAtZero: true
-        //       }
-        //     }
-        //   }
-        options: {
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        unit: 'day'
-                    }
-                },
-                y: {
-                    beginAtZero: false
-                }
-            }
-        }
+        options
     });
 }
