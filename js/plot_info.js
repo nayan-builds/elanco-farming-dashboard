@@ -54,21 +54,6 @@ async function arrayDataInRange(plot, startDate, endDate) {
     });
 
     const options = {
-        plugins: {
-            zoom: {
-                zoom: {
-                    wheel: {
-                        enabled: true
-                    },
-                    pinch: {
-                        enabled: true
-                    }
-                },
-                pan: {
-                    enabled: true
-                }
-            }
-        },
         scales: {
             x: {
                 type: 'time',
