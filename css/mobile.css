@@ -114,9 +114,17 @@ tr:nth-child(even){
 
 /* Form Styling */
 
-#date-filter{
+#filter-bar{
     background-color: var(--neutral-clr);
     box-shadow: var(--lgt-shadow);
+}
+
+#filter-bar>h2{
+    text-align: center;
+    margin-block: 0.5rem;
+}
+
+#date-filter{
     min-height: 30px;
     display: flex;
     align-items: center;
@@ -139,7 +147,7 @@ tr:nth-child(even){
 
 .graph-container{
     width: min(100%, 1000px);
-    margin-block: 3rem;
+    margin-block: 2rem;
 }
 
 .graph-container>canvas{
