@@ -92,7 +92,6 @@ async function arrayDataInRange(plot, startDate, endDate) {
                     backgroundColor: 'green',
                     borderColor: 'green',
                     data: ph,
-                    barThickness: 50
                 }]
         },
         options
@@ -106,8 +105,8 @@ async function arrayDataInRange(plot, startDate, endDate) {
                 {
                     label: 'temperature',
                     backgroundColor: 'red',
+                    borderColor: 'red',
                     data: temp,
-                    barThickness: 50
                 }]
         },
         options
@@ -122,8 +121,8 @@ async function arrayDataInRange(plot, startDate, endDate) {
                 {
                     label: 'humidity',
                     backgroundColor: 'purple',
+                    borderColor: 'purple',
                     data: humid,
-                    barThickness: 50
                 }]
         },
         options
@@ -138,8 +137,8 @@ async function arrayDataInRange(plot, startDate, endDate) {
                 {
                     label: 'light',
                     backgroundColor: 'orange',
+                    borderColor: 'orange',
                     data: light,
-                    barThickness: 50
                 }]
         },
         options
