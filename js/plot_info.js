@@ -36,6 +36,9 @@ async function arrayDataInRange(plot, startDate, endDate) {
 
     const data = await getPlotDateRange("plot" + plot, startDate, endDate);
 
+    //Sort data based on date
+    data.sort((a,b) => (a.Date.value > b.Date.value) ? 1 : ((b.Date.value > a.Date.value) ? -1 : 0));
+
     const date = []
     const ph = []
     const temp = []
@@ -81,7 +84,7 @@ async function arrayDataInRange(plot, startDate, endDate) {
 
 
     new Chart(phGraph, {
-        type: 'scatter',
+        type: 'line',
         // data: dates,
         data: {
             labels: date,
@@ -89,6 +92,7 @@ async function arrayDataInRange(plot, startDate, endDate) {
                 {
                     label: 'pH',
                     backgroundColor: 'green',
+                    borderColor: 'green',
                     data: ph,
                     barThickness: 50
                 }]
@@ -116,7 +120,7 @@ async function arrayDataInRange(plot, startDate, endDate) {
     });
 
     new Chart(tempGraph, {
-        type: 'scatter',
+        type: 'line',
         // data: dates,
         data: {
             labels: date,
@@ -152,7 +156,7 @@ async function arrayDataInRange(plot, startDate, endDate) {
 
 
     new Chart(humidGraph, {
-        type: 'scatter',
+        type: 'line',
         // data: dates,
         data: {
             labels: date,
@@ -188,7 +192,7 @@ async function arrayDataInRange(plot, startDate, endDate) {
 
 
     new Chart(lightGraph, {
-        type: 'scatter',
+        type: 'line',
         // data: dates,
         data: {
             labels: date,
