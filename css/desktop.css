@@ -1,3 +1,9 @@
 .card{
     border-radius: 10px;
 }
+
+.flex-graph>.graph-container{
+    flex: 1 1 0;
+    padding-inline: 1rem;
+    min-width: 40%;
+}
