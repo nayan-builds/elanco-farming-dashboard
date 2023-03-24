@@ -17,6 +17,8 @@
         <div class="card">   
             <p>This is the Elanco Farming Dashboard</p>
             <p>We are your best friend for optmising your farming strategies to maximise your yield.</p>
+            <a href="crops.php" class="button">View Crops</a>
+            <a href="plots.php" class="button">View Plots</a>
         </div>
     </main>
 </body>
