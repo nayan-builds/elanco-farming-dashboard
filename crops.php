@@ -33,7 +33,7 @@ $result = $conn->query("SELECT * FROM crops");
                 <?php
                 while($obj = $result->fetch_object()){
                     echo "<tr>";
-                    echo "<td><a href=\"crop_info.php?crop={$obj->crop}\">{$obj->crop}</a></td>";
+                    echo "<td>{$obj->crop}</td>";
                     echo "<td>{$obj->minPH}-{$obj->maxPH}</td>";
                     echo "<td>{$obj->minTemperature}-{$obj->maxTemperature}</td>";
                     echo "<td>{$obj->minHumidity}-{$obj->maxHumidity}</td>";

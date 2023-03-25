@@ -84,6 +84,22 @@ p{
     margin: 12% auto;
 }
 
+.button{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 1000px;
+    text-decoration: none;
+    color: #FFF;
+    background-color: var(--accent-clr);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--lgt-shadow);
+}
+
+.button:hover{
+    background-color: var(--primary-clr);
+}
+
 /* Table Styling */
 
 .table-container{
@@ -147,7 +163,9 @@ tr:nth-child(even){
 
 .graph-container{
     min-width: 90%;
-    margin-block: 2rem;
+    height: auto;
+    margin-block: 0.5rem;
+    position: relative;
 }
 
 .graph-container>canvas{
