@@ -71,6 +71,21 @@ function drawGraphs(data) {
             y: {
                 beginAtZero: false
             }
+        },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: context => {
+                        const d = new Date(context[0].parsed.x);
+                        const formattedDate = d.toLocaleString([], {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                        });
+                        return formattedDate;
+                    }
+                }
+            }
         }
     }
 
