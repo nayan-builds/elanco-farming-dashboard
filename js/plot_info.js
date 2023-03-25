@@ -58,6 +58,7 @@ function drawGraphs(data) {
     });
 
     const options = {
+        tension: 0.5,
         maintainAspectRatio: false,
         scales: {
             x: {
