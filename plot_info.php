@@ -37,32 +37,6 @@ $plot_num = $_GET["plot_num"];
         <div id="filter-bar">
             <h2>Filter</h2>
             <div id="date-filter">
-                <!-- <form action="" method="get">
-                    <input type="hidden" name="plot_num" value="<?php echo $plot_num?>"> -->
-                    <!-- <div> -->
-                        <!-- <label for="start-date">Start Date:</label>
-                        <input type="date" id="start-date" name="start_date" min="2022-01-01" max="2022-12-31" value="<?php
-                        // if(isset($_GET["start_date"])){
-                        //     echo $_GET["start_date"];
-                        // }
-                        // else{
-                        //     echo "2022-01-01";
-                        // }
-                        ?>">
-                    </div>
-                    <div>
-                        <label for="end-date">End Date:</label>
-                        <input type="date" id="end-date" name="end_date" min="2022-01-01" max="2022-12-31" value="<?php
-                        // if(isset($_GET["end_date"])){
-                        //     echo $_GET["end_date"];
-                        // }
-                        // else{
-                        //     echo "2022-12-31";
-                        // }
-                        ?>">
-                    </div> -->
-                    <!-- <input type="submit">
-                </form> -->
                 <div>
                     <label for="month-input">Month:</label>
                     <input type="month" id="month-input" min="2022-01" max="2022-12">
@@ -83,13 +57,21 @@ $plot_num = $_GET["plot_num"];
                 <canvas id="myChartlight"></canvas>
             </div>
         </div>
+        <div id="recommend">
+            <h2>Find the best crop</h2>
+            <p>Enter the date you would like to plant crops in this plot and we will recommend the top 3 crops to plant based on pH, temperature, humidity and light.</p>
+            <label for="start-date">Enter Date:</label>
+            <input type="date" id="start-date">
+        </div>
+        <div id="crop-container">
 
+        </div>
     </main>
     <script src="js/api.js"></script>
     <script src="js/plot_info.js"></script>
     <script>
-        var $_GET = <?php echo json_encode($_GET); ?>;
-        var plot = $_GET['plot_num'];
+        const $_GET = <?php echo json_encode($_GET); ?>;
+        const plot = $_GET['plot_num'];
 
         getData(plot);
     </script>

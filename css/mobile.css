@@ -40,6 +40,7 @@ p{
     min-height: 48px;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 
 #primary-nav ul{
@@ -171,4 +172,37 @@ tr:nth-child(even){
 .graph-container>canvas{
     width: 100%;
     height: auto;
+}
+
+/* Recommendations styling */
+
+#recommend{
+    background-color: var(--accent-clr);
+    color: #FFF;
+    padding: 2rem 4rem;
+}
+
+
+.crop{
+    border: 2px solid var(--neutral-clr);
+    padding: 1rem 2rem;
+}
+
+.crop h3{
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+}
+
+.crop ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.crop ul li{
+    background-color: var(--accent-clr);
+    padding: 0.5rem 1rem;
+    border-radius: 1000px;
+    color: #FFF;
 }

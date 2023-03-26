@@ -1,8 +1,13 @@
-
 async function getData(plot){
     const data = await getPlot("plot" + plot);
+    //Sort data based on date
+    data.sort((a,b) => (a.Date.value > b.Date.value) ? 1 : ((b.Date.value > a.Date.value) ? -1 : 0));
+
     fillTable(data);
     drawGraphs(data);
+    
+    const dateInput = document.getElementById("start-date");
+    dateInput.addEventListener("change", function(){displayRecommended(data, dateInput.value)})
 }
 
 function fillTable(data) {
@@ -40,9 +45,6 @@ function drawGraphs(data) {
     const humidGraph = document.getElementById('myCharthumid');
     const lightGraph = document.getElementById('myChartlight');
 
-    //Sort data based on date
-    data.sort((a,b) => (a.Date.value > b.Date.value) ? 1 : ((b.Date.value > a.Date.value) ? -1 : 0));
-
     const date = []
     const ph = []
     const temp = []
@@ -66,7 +68,7 @@ function drawGraphs(data) {
                 max: '2022-12-31',
                 type: 'time',
                 time: {
-                    unit: 'day'
+                    unit: 'month'
                 }
             },
             y: {
@@ -156,8 +158,13 @@ function drawGraphs(data) {
     monthInput.addEventListener("change", function(){filterCharts(monthInput)});
 
     function filterCharts(date){
-        console.log("pog")
-        console.log(phChart);
+        console.log(date.value)
+        if (date.value == ''){
+            options.scales.x.time.unit = 'month';
+        }
+        else{
+            options.scales.x.time.unit = 'day';
+        }
         const year = date.value.substring(0, 4);
         const month = date.value.substring(5, 7);
     
@@ -171,15 +178,9 @@ function drawGraphs(data) {
         setChartBounds(startDate, endDate);
     
         function setChartBounds(min, max){
-            phChart.options.scales.x.min = min;
-            tempChart.options.scales.x.min = min;
-            humidChart.options.scales.x.min = min;
-            lightChart.options.scales.x.min = min;
+            options.scales.x.min = min;
         
-            phChart.options.scales.x.max = max;
-            tempChart.options.scales.x.max = max;
-            humidChart.options.scales.x.max = max;
-            lightChart.options.scales.x.max = max;
+            options.scales.x.max = max;
         
             phChart.update();
             tempChart.update();
@@ -189,6 +190,107 @@ function drawGraphs(data) {
     }
 }
 
+async function getRecommendedCrops(data, startDate){
+    //Getting crop data in form:
+    // [{
+    //     type: 'type',
+    //     ph: {
+    //         min: 'minPH',
+    //         max: 'maxPH',
+    //     },
+    //     temp: {
+    //         min: 'minPH',
+    //         max: 'maxPH',
+    //     },
+    //     humid: {
+    //         min: 'minPH',
+    //         max: 'maxPH',
+    //     },
+    //     light: {
+    //         min: 'minPH',
+    //         max: 'maxPH',
+    //     },
+    //     cost: 'cost',
+    //     yield: 'yield',
+    //     time: 'time'
+    // }]
+    let cropData = [];
+    try{
+        const response = await fetch('includes/get_crop_json.php');
+        cropData = await response.json();
+    } catch (error) {
+        console.log(error);
+    }
+
+    cropData.forEach(crop => {
+        const plotData = getPlotData(data, startDate, crop.time);
+        let outOfRangeCount = 0
+        plotData.forEach(plotDateData => {
+            if(plotDateData.PH < crop.ph.min || plotDateData.PH > crop.ph.max){
+                outOfRangeCount++;
+            }
+            if(plotDateData.Temp_C < crop.temp.min || plotDateData.Temp_C > crop.temp.max){
+                outOfRangeCount++;
+            }
+            if(plotDateData.AVG_Humidity__ < crop.humid.min || plotDateData.AVG_Humidity__ > crop.humid.max){
+                outOfRangeCount++;
+            }
+            if(plotDateData.AVG_Light__ < crop.light.min || plotDateData.AVG_Light__ > crop.light.max){
+                outOfRangeCount++;
+            }
+        });
+        let rating = outOfRangeCount / crop.time;
+        crop.rating = rating;
+    });
+
+    //Lower rating is better
+    cropData.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0));
+    return cropData;
+}
+
+function getPlotData(data, startDate, days){
+    const start = new Date(startDate);
+    const startCompare = start.toLocaleString("default", {month: '2-digit'}) + "-" + start.toLocaleString("default", {day: '2-digit'})
+
+    //Adds days to start date to get end
+    const end = new Date(startDate);
+    end.setDate(end.getDate() + days);
+    const endCompare = end.toLocaleString("default", {month: '2-digit'}) + "-" + end.toLocaleString("default", {day: '2-digit'})
+    if(start < end){
+        return data.filter((plotData) => {
+            let date = plotData.Date.value.substring(5);
+            return date >= startCompare && date <= endCompare;
+        });
+    }
+    else{
+        return date.filter((plotData) => {
+            let date = plotData.Date.value.substring(5);
+            return (date >= startCompare && date <= "12-31") || (date >= "01-01" && date <= endCompare);
+        })
+    }
+}
+
+async function displayRecommended(data, startDate){
+    const recommended = await getRecommendedCrops(data, startDate);
+    const container = document.getElementById("crop-container");
+    container.innerHTML = "";
+    for(let i = 0; i < 3; i++){
+        let crop = recommended[i];
+        let content = "<div class=\"crop\">";
+        content += "<h3>"+crop.type+"</h3>";
+        content += "<ul>";
+        content += "<li>pH: "+crop.ph.min+"-"+crop.ph.max+"</li>";
+        content += "<li>Temperature: "+crop.temp.min+"-"+crop.temp.max+"</li>";
+        content += "<li>Humidity: "+crop.humid.min+"-"+crop.humid.max+"</li>";
+        content += "<li>Light: "+crop.light.min+"-"+crop.light.max+"</li>";
+        content += "<li>Cost + Maintenance: £"+crop.cost+"</li>";
+        content += "<li>Yield: £"+crop.yield+"</li>";
+        content += "<li>Growth Time (Days): "+crop.time+"</li>";
+        content += "</ul>";
+        content += "</div>";
+        container.insertAdjacentHTML("beforeend", content);
+    }
+}
 
 
 
