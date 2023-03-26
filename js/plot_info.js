@@ -1,9 +1,13 @@
-
 async function getData(plot){
     const data = await getPlot("plot" + plot);
+    //Sort data based on date
+    data.sort((a,b) => (a.Date.value > b.Date.value) ? 1 : ((b.Date.value > a.Date.value) ? -1 : 0));
+
     fillTable(data);
     drawGraphs(data);
-    getRecommendedCrops(1, 1);
+    
+    const dateInput = document.getElementById("start-date");
+    dateInput.addEventListener("change", function(){displayRecommended(data, dateInput.value)})
 }
 
 function fillTable(data) {
@@ -40,9 +44,6 @@ function drawGraphs(data) {
     const tempGraph = document.getElementById('myCharttemp');
     const humidGraph = document.getElementById('myCharthumid');
     const lightGraph = document.getElementById('myChartlight');
-
-    //Sort data based on date
-    data.sort((a,b) => (a.Date.value > b.Date.value) ? 1 : ((b.Date.value > a.Date.value) ? -1 : 0));
 
     const date = []
     const ph = []
@@ -221,17 +222,8 @@ async function getRecommendedCrops(data, startDate){
         console.log(error);
     }
 
-
-    console.log(cropData);
     cropData.forEach(crop => {
-        const start = new Date(startDate);
-        const end = start;
-        end.setDate(end.getDate() + crop.time)
-        const getYear = end.toLocaleString("default", {year: 'numeric'});
-        const getMonth = end.toLocaleString("default", {month: '2-digit'});
-        const getDay = end.toLocaleString("default", {day: '2-digit'});
-        console.log(getYear + "-" + getMonth + "-" + getDay);
-        const plotData = [] //Need to get plot data for days from start to growth time of crop
+        const plotData = getPlotData(data, startDate, crop.time);
         let outOfRangeCount = 0
         plotData.forEach(plotDateData => {
             if(plotDateData.PH < crop.ph.min || plotDateData.PH > crop.ph.max){
@@ -247,9 +239,55 @@ async function getRecommendedCrops(data, startDate){
                 outOfRangeCount++;
             }
         });
-        crop.out = outOfRangeCount;
+        let rating = outOfRangeCount / crop.time;
+        crop.rating = rating;
     });
-    cropData.sort((a,b) => (a.out < b.out) ? 1 : ((b.out < a.out) ? -1 : 0));
+
+    //Lower rating is better
+    cropData.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0));
+    return cropData;
+}
+
+function getPlotData(data, startDate, days){
+    const start = new Date(startDate);
+    const startCompare = start.toLocaleString("default", {month: '2-digit'}) + "-" + start.toLocaleString("default", {day: '2-digit'})
+
+    //Adds days to start date to get end
+    const end = new Date(startDate);
+    end.setDate(end.getDate() + days);
+    const endCompare = end.toLocaleString("default", {month: '2-digit'}) + "-" + end.toLocaleString("default", {day: '2-digit'})
+    if(start < end){
+        return data.filter((plotData) => {
+            let date = plotData.Date.value.substring(5);
+            return date >= startCompare && date <= endCompare;
+        });
+    }
+    else{
+        return date.filter((plotData) => {
+            let date = plotData.Date.value.substring(5);
+            return (date >= startCompare && date <= "12-31") || (date >= "01-01" && date <= endCompare);
+        })
+    }
+}
+
+async function displayRecommended(data, startDate){
+    const recommended = await getRecommendedCrops(data, startDate);
+    const container = document.getElementById("crop-container");
+    container.innerHTML = "";
+    for(let i = 0; i < 3; i++){
+        let crop = recommended[i];
+        console.log(crop)
+        let content = "<div class=\"crop\">";
+        content += "<h3>"+crop.type+"</h3>";
+        content += "<ul>";
+        content += "<li>"+crop.ph.min+"-"+crop.ph.max+"</li>";
+        content += "<li>"+crop.temp.min+"-"+crop.temp.max+"</li>";
+        content += "<li>"+crop.humid.min+"-"+crop.humid.max+"</li>";
+        content += "<li>"+crop.light.min+"-"+crop.light.max+"</li>";
+        content += "</ul>";
+        content += "</div>;"
+        container.insertAdjacentHTML("beforeend", content);
+    }
 }
 
 
