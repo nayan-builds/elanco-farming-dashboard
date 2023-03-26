@@ -3,6 +3,7 @@ async function getData(plot){
     const data = await getPlot("plot" + plot);
     fillTable(data);
     drawGraphs(data);
+    getRecommendedCrops(1, 1);
 }
 
 function fillTable(data) {
@@ -66,7 +67,7 @@ function drawGraphs(data) {
                 max: '2022-12-31',
                 type: 'time',
                 time: {
-                    unit: 'day'
+                    unit: 'month'
                 }
             },
             y: {
@@ -156,8 +157,13 @@ function drawGraphs(data) {
     monthInput.addEventListener("change", function(){filterCharts(monthInput)});
 
     function filterCharts(date){
-        console.log("pog")
-        console.log(phChart);
+        console.log(date.value)
+        if (date.value == ''){
+            options.scales.x.time.unit = 'month';
+        }
+        else{
+            options.scales.x.time.unit = 'day';
+        }
         const year = date.value.substring(0, 4);
         const month = date.value.substring(5, 7);
     
@@ -171,15 +177,9 @@ function drawGraphs(data) {
         setChartBounds(startDate, endDate);
     
         function setChartBounds(min, max){
-            phChart.options.scales.x.min = min;
-            tempChart.options.scales.x.min = min;
-            humidChart.options.scales.x.min = min;
-            lightChart.options.scales.x.min = min;
+            options.scales.x.min = min;
         
-            phChart.options.scales.x.max = max;
-            tempChart.options.scales.x.max = max;
-            humidChart.options.scales.x.max = max;
-            lightChart.options.scales.x.max = max;
+            options.scales.x.max = max;
         
             phChart.update();
             tempChart.update();
@@ -189,6 +189,68 @@ function drawGraphs(data) {
     }
 }
 
+async function getRecommendedCrops(data, startDate){
+    //Getting crop data in form:
+    // [{
+    //     type: 'type',
+    //     ph: {
+    //         min: 'minPH',
+    //         max: 'maxPH',
+    //     },
+    //     temp: {
+    //         min: 'minPH',
+    //         max: 'maxPH',
+    //     },
+    //     humid: {
+    //         min: 'minPH',
+    //         max: 'maxPH',
+    //     },
+    //     light: {
+    //         min: 'minPH',
+    //         max: 'maxPH',
+    //     },
+    //     cost: 'cost',
+    //     yield: 'yield',
+    //     time: 'time'
+    // }]
+    let cropData = [];
+    try{
+        const response = await fetch('includes/get_crop_json.php');
+        cropData = await response.json();
+    } catch (error) {
+        console.log(error);
+    }
+
+
+    console.log(cropData);
+    cropData.forEach(crop => {
+        const start = new Date(startDate);
+        const end = start;
+        end.setDate(end.getDate() + crop.time)
+        const getYear = end.toLocaleString("default", {year: 'numeric'});
+        const getMonth = end.toLocaleString("default", {month: '2-digit'});
+        const getDay = end.toLocaleString("default", {day: '2-digit'});
+        console.log(getYear + "-" + getMonth + "-" + getDay);
+        const plotData = [] //Need to get plot data for days from start to growth time of crop
+        let outOfRangeCount = 0
+        plotData.forEach(plotDateData => {
+            if(plotDateData.PH < crop.ph.min || plotDateData.PH > crop.ph.max){
+                outOfRangeCount++;
+            }
+            if(plotDateData.Temp_C < crop.temp.min || plotDateData.Temp_C > crop.temp.max){
+                outOfRangeCount++;
+            }
+            if(plotDateData.AVG_Humidity__ < crop.humid.min || plotDateData.AVG_Humidity__ > crop.humid.max){
+                outOfRangeCount++;
+            }
+            if(plotDateData.AVG_Light__ < crop.light.min || plotDateData.AVG_Light__ > crop.light.max){
+                outOfRangeCount++;
+            }
+        });
+        crop.out = outOfRangeCount;
+    });
+    cropData.sort((a,b) => (a.out < b.out) ? 1 : ((b.out < a.out) ? -1 : 0));
+}
 
 
 
