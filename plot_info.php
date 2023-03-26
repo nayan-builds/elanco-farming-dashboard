@@ -59,12 +59,12 @@ $plot_num = $_GET["plot_num"];
         </div>
         <div id="recommend">
             <h2>Find the best crop</h2>
-            <p>Enter the date you would like to plant crops in this plot and we will recommend the best crop to plant based on pH, temperature, humidity and light.</p>
+            <p>Enter the date you would like to plant crops in this plot and we will recommend the top 3 crops to plant based on pH, temperature, humidity and light.</p>
             <label for="start-date">Enter Date:</label>
             <input type="date" id="start-date">
-            <div id="crop-container">
+        </div>
+        <div id="crop-container">
 
-            </div>
         </div>
     </main>
     <script src="js/api.js"></script>

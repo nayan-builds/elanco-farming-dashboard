@@ -276,16 +276,18 @@ async function displayRecommended(data, startDate){
     container.innerHTML = "";
     for(let i = 0; i < 3; i++){
         let crop = recommended[i];
-        console.log(crop)
         let content = "<div class=\"crop\">";
         content += "<h3>"+crop.type+"</h3>";
         content += "<ul>";
-        content += "<li>"+crop.ph.min+"-"+crop.ph.max+"</li>";
-        content += "<li>"+crop.temp.min+"-"+crop.temp.max+"</li>";
-        content += "<li>"+crop.humid.min+"-"+crop.humid.max+"</li>";
-        content += "<li>"+crop.light.min+"-"+crop.light.max+"</li>";
+        content += "<li>pH: "+crop.ph.min+"-"+crop.ph.max+"</li>";
+        content += "<li>Temperature: "+crop.temp.min+"-"+crop.temp.max+"</li>";
+        content += "<li>Humidity: "+crop.humid.min+"-"+crop.humid.max+"</li>";
+        content += "<li>Light: "+crop.light.min+"-"+crop.light.max+"</li>";
+        content += "<li>Cost + Maintenance: £"+crop.cost+"</li>";
+        content += "<li>Yield: £"+crop.yield+"</li>";
+        content += "<li>Growth Time (Days): "+crop.time+"</li>";
         content += "</ul>";
-        content += "</div>;"
+        content += "</div>";
         container.insertAdjacentHTML("beforeend", content);
     }
 }
