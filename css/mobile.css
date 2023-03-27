@@ -15,17 +15,17 @@
     padding: 0;
 }
 
+.image-container>img{
+    width: 100%;
+    height: auto;
+}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
 p{
     margin-bottom: 2rem;
-}
-
-.image-container img{
-    width: 100%;
-    height: auto;
 }
 
 #logo{
@@ -81,6 +81,16 @@ p{
     column-gap: 3px;
 }
 
+.image-container img{
+    width: 100%;
+    height: auto;
+}
+
+.images img{
+    object-fit: cover;
+    max-height: 120px;
+}
+
 .card{
     margin-inline: auto;
     margin-block: 4rem;
@@ -90,7 +100,7 @@ p{
     box-shadow: var(--drk-shadow);
     font-size: 1.8em;
     text-align: center;
-    margin: 12% auto;
+    margin: 48px auto;
 }
 
 .button{

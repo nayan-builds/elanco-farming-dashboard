@@ -15,17 +15,17 @@
             <h1>Welcome</h1>
         </header>
         <div class="images">
-            <div>
-            <img src="img/corn.jpeg" width=100% height=200px>
+            <div class="image-container">
+                <img src="img/corn.jpeg">
             </div>
-            <div>
-                <img src="img/crop.jpeg" width=100% height=200px>
+            <div class="image-container">
+                <img src="img/crop.jpeg">
+            </div class="image-container">
+            <div class="image-container">
+                <img src="img/soil.jpeg">
             </div>
-            <div>
-                <img src="img/soil.jpeg" width=100% height=200px>
-            </div>
-            <div>
-                <img src="img/wheat.jpeg" width=100% height=200px>
+            <div class="image-container">
+                <img src="img/wheat.jpeg">
             </div>
         </div>
         <div class="card">   
