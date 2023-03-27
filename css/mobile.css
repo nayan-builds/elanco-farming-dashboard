@@ -73,6 +73,14 @@ p{
     box-shadow: var(--lgt-shadow);
 }
 
+/* Image Styling */
+.images{
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 3px;
+}
+
 .card{
     margin-inline: auto;
     margin-block: 4rem;

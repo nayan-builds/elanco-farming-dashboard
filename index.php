@@ -14,6 +14,20 @@
         <header id="title-bar" class="title-bar">
             <h1>Welcome</h1>
         </header>
+        <div class="images">
+            <div>
+                <img src="img/corn.jpeg" width=100% height=200px>
+            </div>
+            <div>
+                <img src="img/crop.jpeg" width=100% height=200px>
+            </div>
+            <div>
+                <img src="img/soil.jpeg" width=100% height=200px>
+            </div>
+            <div>
+                <img src="img/wheat.jpeg" width=100% height=200px>
+            </div>
+        </div>
         <div class="card">   
             <p>This is the Elanco Farming Dashboard</p>
             <p>We are your best friend for optmising your farming strategies to maximise your yield.</p>
