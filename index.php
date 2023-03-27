@@ -16,7 +16,7 @@
         </header>
         <div class="images">
             <div>
-                <img src="img/corn.jpeg" width=100% height=200px>
+            <img src="img/corn.jpeg" width=100% height=200px>
             </div>
             <div>
                 <img src="img/crop.jpeg" width=100% height=200px>
