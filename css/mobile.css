@@ -147,6 +147,10 @@ tr:nth-child(even){
     background-color: var(--neutral-clr);
 }
 
+.filter{
+    cursor: pointer;
+}
+
 /* Form Styling */
 
 #filter-bar{

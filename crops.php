@@ -1,7 +1,3 @@
-<?php
-include("includes/db_conn.php");
-$result = $conn->query("SELECT * FROM crops");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,33 +15,20 @@ $result = $conn->query("SELECT * FROM crops");
             <h1>Crops</h1>
         </header>
         <div class="table-container">
-            <table>
+            <table id="crop-table">
                 <tr>
-                    <th>Crop</th>
-                    <th>PH</th>
-                    <th>Temperature</th>
-                    <th>Humidity</th>
-                    <th>Light</th>
-                    <th>Cost + Maintenance</th>
-                    <th>Yield</th>
-                    <th>Growth Time (Days)</th>
+                    <th class="filter" id="type-filter">Crop</th>
+                    <th class="filter" id="ph-filter">PH</th>
+                    <th class="filter" id="temp-filter">Temperature (°C/°F)</th>
+                    <th class="filter" id="humid-filter">Humidity (%)</th>
+                    <th class="filter" id="light-filter">Light (%)</th>
+                    <th class="filter" id="cost-filter">Cost + Maintenance</th>
+                    <th class="filter" id="yield-filter">Yield</th>
+                    <th class="filter" id="time-filter">Growth Time (Days)</th>
                 </tr>
-                <?php
-                while($obj = $result->fetch_object()){
-                    echo "<tr>";
-                    echo "<td>{$obj->crop}</td>";
-                    echo "<td>{$obj->minPH}-{$obj->maxPH}</td>";
-                    echo "<td>{$obj->minTemperature}-{$obj->maxTemperature}</td>";
-                    echo "<td>{$obj->minHumidity}-{$obj->maxHumidity}</td>";
-                    echo "<td>{$obj->minLight}-{$obj->maxLight}</td>";
-                    echo "<td>£{$obj->cost}</td>";
-                    echo "<td>£{$obj->yield}</td>";
-                    echo "<td>{$obj->time}</td>";
-                    echo "</tr>";
-                }
-                ?>
             </table>
         </div>
     </main>
+    <script src="js/crops.js"></script>
 </body>
 </html>
