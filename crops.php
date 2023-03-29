@@ -23,7 +23,8 @@ $result = $conn->query("SELECT * FROM crops");
                 <tr>
                     <th>Crop</th>
                     <th>PH</th>
-                    <th>Temperature</th>
+                    <th>Temperature °C</th>
+                    <th>Temperature °F</th>
                     <th>Humidity</th>
                     <th>Light</th>
                     <th>Cost + Maintenance</th>
@@ -36,6 +37,11 @@ $result = $conn->query("SELECT * FROM crops");
                     echo "<td>{$obj->crop}</td>";
                     echo "<td>{$obj->minPH}-{$obj->maxPH}</td>";
                     echo "<td>{$obj->minTemperature}-{$obj->maxTemperature}</td>";
+
+                    $minTempF = ((int)$obj->minTemperature * 1.8) + 32;
+                    $maxTempF = ((int)$obj->maxTemperature * 1.8) + 32;
+
+                    echo "<td>{$minTempF}-{$maxTempF}</td>";
                     echo "<td>{$obj->minHumidity}-{$obj->maxHumidity}</td>";
                     echo "<td>{$obj->minLight}-{$obj->maxLight}</td>";
                     echo "<td>£{$obj->cost}</td>";
