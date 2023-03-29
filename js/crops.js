@@ -8,7 +8,9 @@ function updateTable(cropData){
         let content = "<tr>";
         content += "<td>"+crop.type+"</td>";
         content += "<td>"+crop.ph.min+"-"+crop.ph.max+"</td>";
-        content += "<td>"+crop.temp.min+"-"+crop.temp.max+"</td>";
+        let minTempF = Math.round((crop.temp.min * 1.8) + 32);
+        let maxTempF = Math.round((crop.temp.max * 1.8) + 32);
+        content += "<td>"+crop.temp.min+"-"+crop.temp.max+" / "+minTempF+"-"+maxTempF+"</td>";
         content += "<td>"+crop.humid.min+"-"+crop.humid.max+"</td>";
         content += "<td>"+crop.light.min+"-"+crop.light.max+"</td>";
         content += "<td>£"+crop.cost+"</td>";

@@ -19,7 +19,7 @@
                 <tr>
                     <th class="filter" id="type-filter">Crop</th>
                     <th class="filter" id="ph-filter">PH</th>
-                    <th class="filter" id="temp-filter">Temperature</th>
+                    <th class="filter" id="temp-filter">Temperature °C/°F</th>
                     <th class="filter" id="humid-filter">Humidity</th>
                     <th class="filter" id="light-filter">Light</th>
                     <th class="filter" id="cost-filter">Cost + Maintenance</th>
