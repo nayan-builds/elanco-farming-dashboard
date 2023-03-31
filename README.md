@@ -11,3 +11,6 @@ dividing the value on the counter by the crop's growth time._
 **Crops with a lower rating are better.**
 
 It makes the assumption that future years will follow the same trends as 2022.
+## Technologies Used
+The project uses vanilla css and javascript, except for the use of Chart.js for graphing.
+[Chart.js](https://www.chartjs.org/)
