@@ -1,7 +1,7 @@
 //This is a messy solution but it was difficult to find a work around
 //for the array.push() function passing by reference rather than value.
 async function fillPlotTable(){
-    const table = document.getElementById("plot-table");
+    const table = document.querySelector("#plot-table>tbody");
     const allData = await getAll();
     class PlotData{
 

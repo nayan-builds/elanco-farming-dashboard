@@ -15,11 +15,6 @@
     padding: 0;
 }
 
-.image-container>img{
-    width: 100%;
-    height: auto;
-}
-
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -74,6 +69,12 @@ p{
 }
 
 /* Image Styling */
+
+.image-container>img{
+    width: 100%;
+    height: auto;
+}
+
 .images{
     margin: 30px;
     display: grid;
@@ -88,8 +89,10 @@ p{
 
 .images img{
     object-fit: cover;
-    max-height: 120px;
+    height: 80px;
 }
+
+/* General Styles */
 
 .card{
     margin-inline: auto;

@@ -6,6 +6,10 @@
     padding: 0.5rem 1rem;
 }
 
+.images img{
+    height: 120px;
+}
+
 .card{
     border-radius: 10px;
 }
