@@ -1,9 +1,7 @@
-const table = document.getElementById("crop-table");
+const table = document.querySelector("#crop-table>tbody");
 
 function updateTable(cropData){
-    while (table.childElementCount > 1) {
-        table.removeChild(table.lastChild);
-    }
+    table.innerHTML = "";
     cropData.forEach(crop => {
         let content = "<tr>";
         content += "<td>"+crop.type+"</td>";
@@ -33,7 +31,6 @@ async function getCrops(){
 }
 
 function filterCrops(cropData, dataPoint, asc = false){
-    console.log("filter");
     if (asc){
         switch (dataPoint){
             case "ph":

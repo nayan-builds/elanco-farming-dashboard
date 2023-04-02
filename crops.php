@@ -30,16 +30,21 @@
         </div>
         <div class="table-container">
             <table id="crop-table">
-                <tr>
-                    <th class="filter" id="type-filter">Crop</th>
-                    <th class="filter" id="ph-filter">PH</th>
-                    <th class="filter" id="temp-filter">Temperature (°C/°F)</th>
-                    <th class="filter" id="humid-filter">Humidity (%)</th>
-                    <th class="filter" id="light-filter">Light (%)</th>
-                    <th class="filter" id="cost-filter">Cost + Maintenance</th>
-                    <th class="filter" id="yield-filter">Yield</th>
-                    <th class="filter" id="time-filter">Growth Time (Days)</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th class="filter" id="type-filter">Crop</th>
+                        <th class="filter" id="ph-filter">PH</th>
+                        <th class="filter" id="temp-filter">Temperature (°C/°F)</th>
+                        <th class="filter" id="humid-filter">Humidity (%)</th>
+                        <th class="filter" id="light-filter">Light (%)</th>
+                        <th class="filter" id="cost-filter">Cost + Maintenance</th>
+                        <th class="filter" id="yield-filter">Yield</th>
+                        <th class="filter" id="time-filter">Growth Time (Days)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
             </table>
         </div>
     </main>

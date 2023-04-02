@@ -16,13 +16,18 @@
         </header>
         <div class="table-container">
             <table id="plot-table">
-                <tr>
-                    <th>Plot</th>
-                    <th>Average PH</th>
-                    <th>Average Temperature</th>
-                    <th>Average Humidity</th>
-                    <th>Average Light</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Plot</th>
+                        <th>Average PH</th>
+                        <th>Average Temperature</th>
+                        <th>Average Humidity</th>
+                        <th>Average Light</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
             </table>
         </div>
     </main>

@@ -11,7 +11,7 @@ async function getData(plot){
 }
 
 function fillTable(data) {
-    const table = document.getElementById("plot-table");
+    const table = document.querySelector("#plot-table>tbody");
     let averages = {
         ph: 0,
         temp: 0,
@@ -158,7 +158,6 @@ function drawGraphs(data) {
     monthInput.addEventListener("change", function(){filterCharts(monthInput)});
 
     function filterCharts(date){
-        console.log(date.value)
         if (date.value == ''){
             options.scales.x.time.unit = 'month';
         }
@@ -290,6 +289,7 @@ async function displayRecommended(data, startDate){
         content += "</div>";
         container.insertAdjacentHTML("beforeend", content);
     }
+    container.scrollIntoView();
 }
 
 
