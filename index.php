@@ -16,16 +16,16 @@
         </header>
         <div class="images">
             <div class="image-container">
-                <img src="img/corn.jpeg">
+                <img src="img/corn.jpeg" alt="">
             </div>
             <div class="image-container">
-                <img src="img/crop.jpeg">
+                <img src="img/crop.jpeg" alt="">
             </div class="image-container">
             <div class="image-container">
-                <img src="img/soil.jpeg">
+                <img src="img/soil.jpeg" alt="">
             </div>
             <div class="image-container">
-                <img src="img/wheat.jpeg">
+                <img src="img/wheat.jpeg" alt="">
             </div>
         </div>
         <div class="card">   

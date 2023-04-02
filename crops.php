@@ -14,6 +14,20 @@
         <header id="title-bar" class="title-bar">
             <h1>Crops</h1>
         </header>
+        <div class="images">
+            <div class="image-container">
+                <img src="img/barley.jpeg" alt="">
+            </div>
+            <div class="image-container">
+                <img src="img/oats.jpeg" alt="">
+            </div class="image-container">
+            <div class="image-container">
+                <img src="img/plot.jpeg" alt="">
+            </div>
+            <div class="image-container">
+                <img src="img/wheat.jpeg" alt="">
+            </div>
+        </div>
         <div class="table-container">
             <table id="crop-table">
                 <tr>
